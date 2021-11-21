@@ -1,0 +1,40 @@
+<div class="background-550">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+<form class="form-background-550">
+  <h3 class="form-header">Create your Matilda account</h3>
+  <app-label forForLabel="organizationName" classForLabel="label-font" textForLabel="Organization Name"></app-label>
+  <input
+    type="text"
+    placeholder="Organization Name"
+    #organizationName
+    required
+    id="organizationName"
+    class="input-font">
+
+  <app-label forForLabel="phoneNumber" classForLabel="label-font" textForLabel="Phone Number"></app-label>
+  <input
+    type="tel"
+    placeholder="Phone Number"
+    #phoneNumber
+    required
+    id="phoneNumber"
+    class="input-font">
+
+  <app-label forForLabel="address" classForLabel="label-font" textForLabel="Address"></app-label>
+  <input
+    type="text"
+    placeholder="Address"
+    #address
+    required
+    id="address"
+    class="input-font">
+
+  <app-button
+    classForButton="button-font"
+    valueForButton="Register"
+    (click)="getValue({organizationName:organizationName.value,phoneNumber:phoneNumber.value,address:address.value})"
+  ></app-button>
+</form>

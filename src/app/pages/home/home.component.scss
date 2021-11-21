@@ -1,0 +1,32 @@
+.scroll-menu {
+  overflow-y: scroll;
+}
+.main-all-card-element{
+  padding: 70px;
+}
+.create-button{
+   cursor: pointer;
+   border: 2px solid #193d3e;
+   border-radius: 5px;
+   text-align: center;
+   padding: 3px;
+   margin-top: 8px;
+}
+.example-list{
+  cursor: pointer;
+}
+
+
+.modal-data{
+  text-align: center;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}

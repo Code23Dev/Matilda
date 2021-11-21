@@ -1,0 +1,23 @@
+<div class="background-340">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+<form class="form-background-340">
+  <h3 class="form-header">Login Here</h3>
+  <app-label forForLabel="password" classForLabel="label-font" textForLabel="Password"></app-label>
+  <input
+    type="password"
+    placeholder="Password"
+    #password
+    id="password"
+    required
+    maxlength="6"
+    class="input-font">
+
+  <app-button
+    classForButton="button-font"
+    valueForButton="Log In"
+    (click)="getValue({password:password.value})"
+  ></app-button>
+</form>

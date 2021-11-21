@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'testing-technical-task';
+ public token(){
+  let haveThisUser:any= localStorage.getItem('userData') ? true : false
+    localStorage.setItem('token', haveThisUser);
+  }
+
+  ngOnInit(): void {
+  }
 }

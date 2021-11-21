@@ -1,0 +1,39 @@
+<div class="background-520">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+<form class="form-background-520" [formGroup]="registerForm">
+  <h3 class="form-header">Register Here</h3>
+  <app-label forForLabel="username" classForLabel="label-font" textForLabel="Name"></app-label>
+  <input
+    type="text"
+    placeholder="name"
+    #username
+    id="username"
+    required
+    class="input-font">
+  <app-label forForLabel="email" classForLabel="label-font" textForLabel="Email"></app-label>
+  <input
+    type="email"
+    placeholder="Email"
+    #email
+    id="email"
+    required
+    class="input-font">
+  <app-label forForLabel="password" classForLabel="label-font" textForLabel="Password"></app-label>
+  <input
+    type="password"
+    placeholder="Password"
+    #password
+    id="password"
+    required
+    maxlength="6"
+    class="input-font">
+  <app-button
+    classForButton="button-font"
+    valueForButton="Register"
+    (click)="getValue({username:username.value,password:password.value,email:email.value})"
+  ></app-button>
+</form>
+

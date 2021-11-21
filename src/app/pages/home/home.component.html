@@ -1,0 +1,116 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 ">
+      <div class="scroll-menu">
+        <h4>{{namedata}}</h4>
+        <h5>Business project</h5>
+        <h6><img src="https://img.icons8.com/ios-glyphs/30/ffffff/link--v1.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/ios-filled/30/ffffff/external-link-squared.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/ios-filled/30/ffffff/message-link.png"/>  Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/dotty/30/ffffff/open-in-browser.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/fluency-systems-regular/30/ffffff/delete-link.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/pastel-glyph/30/ffffff/domain.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/carbon-copy/30/ffffff/broken-link.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/material/30/ffffff/delicious.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/carbon-copy/30/ffffff/domain.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/external-prettycons-lineal-prettycons/30/ffffff/external-search-engine-technology-prettycons-lineal-prettycons.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h6><img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/30/ffffff/external-browser-marketing-seo-flatart-icons-outline-flatarticons.png"/> Lorem Ipsum is simply dummy text</h6>
+        <h5>You're in a company-managed project</h5>
+      </div>
+    </div>
+    <div class="col-9" style="color: #1845ad">
+      <div class="row main-all-card-element">
+         <div cdkDropListGroup class="row">
+           <div class="example-container col-4">
+             <div class="card">
+               <div class="card-body">
+                 <h5 class="card-title">To do</h5>
+                 <div
+                   cdkDropList
+                   [cdkDropListData]="todo"
+                   class="example-list"
+                   (cdkDropListDropped)="drop($event)">
+                   <div class="example-box" *ngFor="let item of todo" (click)="detail(item)" cdkDrag>{{item.name}}</div>
+                   <div (click)="create()"  style="margin-top: 8px; color: darkgray"> <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/000000/external-add-interface-dreamstale-lineal-dreamstale.png"/> Create</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="example-container col-4">
+             <div class="card">
+               <div class="card-body">
+                 <h5 class="card-title">In Progress</h5>
+                 <div
+                   cdkDropList
+                   [cdkDropListData]="inProgress"
+                   class="example-list"
+                   (cdkDropListDropped)="drop($event)">
+                   <div class="example-box" *ngFor="let item of inProgress" cdkDrag>{{item.name}}</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="example-container col-4">
+             <div class="card">
+               <div class="card-body">
+                 <h5 class="card-title">Done</h5>
+                 <div
+                   cdkDropList
+                   [cdkDropListData]="done"
+                   class="example-list"
+                   (cdkDropListDropped)="drop($event)">
+                   <div class="example-box" *ngFor="let item of done"  cdkDrag>{{item.name}}</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div *ngIf="show">
+  <div class="modal-data">
+    <div class=" " id="exampleModal" tabindex="1" aria-hidden="false">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span style="color:#000;">Select User : </span>
+            <div class="col-2">
+              <select
+                id="person"
+                class="form-control"
+                #selectRef
+                [(ngModel)]="selectedValue"
+                (change)="updateSelect(selectRef.value)">
+                <option *ngFor="let user of users" id="{{user.id}}" [value]="user.id">{{ user.name }}</option>
+              </select>
+            </div>
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" (click)="closePopup()" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="email" class="form-control" id="name" #name [value]="nameValue">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" rows="3" #description [value]="descriptionValue"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" *ngIf="delete" (click)="deleteFunc()">Delete</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" *ngIf="update" (click)="updateFunc({name:name.value,description:description.value})">Update</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeFunc()">Close</button>
+            <button type="button" class="btn btn-primary" *ngIf="save" (click)="getValue({name:name.value,description:description.value})">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
